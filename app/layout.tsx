@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Open Source Projects",
   description: "Discover open source projects, data, and research from our company.",
   icons: {
-    icon: "/favicon.ico"
+    icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/favicon.ico`
   },
 };
 
