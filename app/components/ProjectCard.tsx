@@ -27,6 +27,7 @@ const MAX_VISIBLE_TOPICS = 6;
 const ProjectCard: React.FC<ProjectCardProps> = ({ repo, topic, setTopic }) => {
   const [showAllTopics, setShowAllTopics] = useState(false);
 
+  const basePath = process.env.NODE_ENV === 'production' ? '/oss_catalog' : '';
   return (
   <div className="site-card" tabIndex={0} role="button" aria-label={`Open ${repo.name} on GitHub`} style={{ minWidth: 320, maxWidth: 400, minHeight: 320, maxHeight: 480 }}>
       <a
@@ -105,15 +106,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ repo, topic, setTopic }) => {
       </div>
   <div className="site-card-stats">
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-          <Image src="/img/star-solid-full.svg" alt="stars" width={20} height={20} style={{ verticalAlign: 'middle' }} />
+          <Image src={`${basePath}/img/star-solid-full.svg`} alt="stars" width={20} height={20} style={{ verticalAlign: 'middle' }} />
           {repo.stargazers_count}
         </span>
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-          <Image src="/img/code-fork-solid-full.svg" alt="forks" width={20} height={20} style={{ verticalAlign: 'middle' }} />
+          <Image src={`${basePath}/img/code-fork-solid-full.svg`} alt="forks" width={20} height={20} style={{ verticalAlign: 'middle' }} />
           {repo.forks_count}
         </span>
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-          <Image src="/img/code-solid-full.svg" alt="language" width={20} height={20} style={{ verticalAlign: 'middle' }} />
+          <Image src={`${basePath}/img/code-solid-full.svg`} alt="language" width={20} height={20} style={{ verticalAlign: 'middle' }} />
           {repo.language || "N/A"}
         </span>
       </div>
@@ -126,7 +127,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ repo, topic, setTopic }) => {
           style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%' }}
         >
           GitHub
-          <Image src="/img/github.svg" alt="GitHub" width={24} height={24} style={{ verticalAlign: 'middle' }} />
+          <Image src={`${basePath}/img/github.svg`} alt="GitHub" width={24} height={24} style={{ verticalAlign: 'middle' }} />
         </a>
         <a
           href={repo.homepage || undefined}
@@ -137,7 +138,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ repo, topic, setTopic }) => {
           style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10, width: '100%' }}
         >
           Website
-          <Image src={repo.homepage ? "/img/arrow.svg" : "/img/arrow-gray.svg"} alt="Open website" width={20} height={20} style={{ verticalAlign: 'middle' }} />
+          <Image src={repo.homepage ? `${basePath}/img/arrow.svg` : `${basePath}/img/arrow-gray.svg`} alt="Open website" width={20} height={20} style={{ verticalAlign: 'middle' }} />
         </a>
       </div>
     </div>

@@ -91,7 +91,7 @@ export default function CatalogPage() {
           alignItems: "flex-start",
           boxShadow: "0 2px 8px rgba(25, 118, 210, 0.10)",
           backgroundImage:
-            "linear-gradient(90deg, rgba(245, 247, 250, 0.95) 0%, rgba(227, 234, 242, 0.85) 30%, rgba(227, 234, 242, 0.0) 80%), url('/img/bg_3.jpg')",
+            `linear-gradient(90deg, rgba(245, 247, 250, 0.95) 0%, rgba(227, 234, 242, 0.85) 30%, rgba(227, 234, 242, 0.0) 80%), url(${process.env.NODE_ENV === 'production' ? '/oss_catalog/img/bg_3.jpg' : '/img/bg_3.jpg'})`,
           backgroundSize: "100%",
           backgroundPosition: "0% 68%",
           backgroundRepeat: "no-repeat",

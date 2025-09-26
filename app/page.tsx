@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProjectCard from "./components/ProjectCard";
 import Image from "next/image";
+const basePath = process.env.NODE_ENV === 'production' ? '/oss_catalog' : '';
 
 // Type for repository objects
 interface Repo {
@@ -52,7 +53,7 @@ function SummaryStatsSection() {
         alignItems: "center",
         gap: "0.75rem"
       }}>
-  <Image src="/img/chart.svg" alt="Summary Statistics" width={28} height={28} style={{ verticalAlign: "middle" }} />
+  <Image src={`${basePath}/img/chart.svg`} alt="Summary Statistics" width={28} height={28} style={{ verticalAlign: "middle" }} />
         Summary Statistics
       </h2>
       <div style={{
@@ -62,28 +63,28 @@ function SummaryStatsSection() {
         width: "100%"
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-  <Image src="/img/star-solid-full.svg" alt="Total Stars" width={28} height={28} />
+  <Image src={`${basePath}/img/star-solid-full.svg`} alt="Total Stars" width={28} height={28} />
           <div>
             <span style={{ fontSize: "0.8rem", color: "#444" }}>Total Stars</span><br />
             <span style={{ fontSize: "1.08rem", fontWeight: 700, color: "#15353F" }}>{totalStars}</span>
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-  <Image src="/img/code-fork-solid-full.svg" alt="Total Forks" width={28} height={28} />
+  <Image src={`${basePath}/img/code-fork-solid-full.svg`} alt="Total Forks" width={28} height={28} />
           <div>
             <span style={{ fontSize: "0.8rem", color: "#444" }}>Total Forks</span><br />
             <span style={{ fontSize: "1.08rem", fontWeight: 700, color: "#15353F" }}>{totalForks}</span>
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-  <Image src="/img/github-dark.svg" alt="Total Repos" width={28} height={28} />
+  <Image src={`${basePath}/img/github-dark.svg`} alt="Total Repos" width={28} height={28} />
           <div>
             <span style={{ fontSize: "0.8rem", color: "#444" }}>Total Repos</span><br />
             <span style={{ fontSize: "1.08rem", fontWeight: 700, color: "#15353F" }}>{repoCount}</span>
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-  <Image src="/img/code-solid-full.svg" alt="Most Popular Language" width={28} height={28} />
+  <Image src={`${basePath}/img/code-solid-full.svg`} alt="Most Popular Language" width={28} height={28} />
           <div>
             <span style={{ fontSize: "0.8rem", color: "#444" }}>Most Popular Language</span><br />
             <span style={{ fontSize: "0.98rem", fontWeight: 700, color: "#15353F" }}>{mostPopularLanguage}</span>
@@ -205,7 +206,7 @@ export default function Home() {
         {/* Get Involved Section */}
         <div style={{ flex: 1, minWidth: 0 }}>
           <h2 className="cta-section-title" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            <Image src="/img/comments.svg" alt="Get Involved" width={26} height={26} style={{ verticalAlign: "middle" }} />
+            <Image src={`${basePath}/img/comments.svg`} alt="Get Involved" width={26} height={26} style={{ verticalAlign: "middle" }} />
             Get Involved!
           </h2>
           <p className="cta-section-desc">
@@ -236,7 +237,7 @@ export default function Home() {
             alignItems: "center",
             gap: "0.75rem"
           }}>
-            <Image src="/img/newspaper.svg" alt="Latest News" width={26} height={26} style={{ verticalAlign: "middle" }} />
+            <Image src={`${basePath}/img/newspaper.svg`} alt="Latest News" width={26} height={26} style={{ verticalAlign: "middle" }} />
             Latest News & Updates
           </h2>
           <ul style={{ paddingLeft: 0, listStyle: "none", margin: 0 }}>
