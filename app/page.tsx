@@ -135,8 +135,9 @@ function FeaturedProjects() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   useEffect(() => {
-    fetch("/repos.json")
+    fetch(`${basePath}/repos.json`)
       .then(res => {
         if (!res.ok) throw new Error("Failed to load repositories...");
         return res.json();
@@ -149,7 +150,7 @@ function FeaturedProjects() {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [basePath]);
 
   if (loading)
     return <p style={{ color: "#1976d2", fontWeight: 500 }}>Loading featured projects...</p>;

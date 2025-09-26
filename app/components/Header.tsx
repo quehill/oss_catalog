@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const basePath = process.env.NODE_ENV === 'production' ? '/oss_catalog' : '';
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   return (
   <header className="site-header">
   <Link href={basePath + "/"} className="site-header-logo">

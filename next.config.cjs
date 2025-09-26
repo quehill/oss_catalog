@@ -8,4 +8,7 @@ module.exports = {
   },
   basePath: isProd ? '/oss_catalog' : '',
   assetPrefix: isProd ? '/oss_catalog' : '',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd ? '/oss_catalog' : '',
+  },
 };
