@@ -6,6 +6,6 @@ module.exports = {
   images: {
     unoptimized: true,
   },
-  basePath: isProd ? '/oss_catalog/' : '',
-  assetPrefix: isProd ? '/oss_catalog/' : '',
+  basePath: isProd ? '/oss_catalog' : '',
+  assetPrefix: isProd ? '/oss_catalog' : '',
 };
