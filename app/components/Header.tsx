@@ -5,9 +5,10 @@ import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const basePath = process.env.NODE_ENV === 'production' ? '/oss_catalog' : '';
   return (
   <header className="site-header">
-  <Link href="/" className="site-header-logo">
+  <Link href={basePath + "/"} className="site-header-logo">
   <span className="site-header-divider"></span>
   <h1 className="site-header-title">Open Source Projects</h1>
       </Link>

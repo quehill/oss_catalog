@@ -29,8 +29,9 @@ export default function CatalogPage() {
   const [page, setPage] = useState(1);
   const pageSize = 12;
 
+  const basePath = process.env.NODE_ENV === 'production' ? '/oss_catalog' : '';
   useEffect(() => {
-    fetch("/repos.json")
+    fetch(`${basePath}/repos.json`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to load repositories...");
         return res.json();
@@ -43,7 +44,7 @@ export default function CatalogPage() {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [basePath]);
 
   const filteredRepos = repos
     .filter((repo: Repo) =>

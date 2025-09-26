@@ -24,11 +24,12 @@ interface Repo {
 
 function SummaryStatsSection() {
   const [repos, setRepos] = useState<Repo[]>([]);
+  const basePath = process.env.NODE_ENV === 'production' ? '/oss_catalog' : '';
   useEffect(() => {
-    fetch("/repos.json")
+    fetch(`${basePath}/repos.json`)
       .then(res => res.json())
       .then(data => setRepos(data));
-  }, []);
+  }, [basePath]);
   const repoCount = repos.length;
   const totalStars = repos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
   const totalForks = repos.reduce((sum, r) => sum + (r.forks_count || 0), 0);
@@ -185,7 +186,7 @@ export default function Home() {
           <p className="featured-desc">
             Browse and discover open source projects created by our company. Use the full catalog to see more projects and to filter by topic, language, and popularity, and find projects that match your interests.
           </p>
-          <a href="/catalog" className="catalog-btn">Browse the Catalog &rarr;</a>
+          <a href={`${basePath}/catalog`} className="catalog-btn">Browse the Catalog &rarr;</a>
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
           <FeaturedProjects />
