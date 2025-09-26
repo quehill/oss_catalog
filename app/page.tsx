@@ -24,7 +24,6 @@ interface Repo {
 
 function SummaryStatsSection() {
   const [repos, setRepos] = useState<Repo[]>([]);
-  const basePath = process.env.NODE_ENV === 'production' ? '/oss_catalog' : '';
   useEffect(() => {
     fetch(`${basePath}/repos.json`)
       .then(res => res.json())
@@ -135,7 +134,6 @@ function FeaturedProjects() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   useEffect(() => {
     fetch(`${basePath}/repos.json`)
       .then(res => {
