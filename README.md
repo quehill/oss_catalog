@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Open Source Catalog
 
-## Getting Started
+A modern web app for browsing, searching, and discovering open source projects. Built with Next.js and React, this catalog features project cards, summary statistics, filtering, and more.
 
-First, run the development server:
+## 1. Getting Started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm or yarn
+
+### Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/quehill/oss-catalog.git
+cd oss-catalog
+npm install
+```
+
+### Running Locally
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+### Static Data
 
-To learn more about Next.js, take a look at the following resources:
+The app uses a static `repos.json` file in the `public/` directory for repository data. Update this file to change the catalog contents.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 2. Documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Project Structure
 
-## Deploy on Vercel
+- `app/` — Main Next.js app directory
+  - `components/` — Reusable React components (Header, Footer, ProjectCard, etc.)
+  - `catalog/` — Catalog page with search, filter, and sort features
+  - `page.tsx` — Homepage with featured projects and summary statistics
+- `public/` — Static assets (images, `repos.json`)
+- `package.json` — Project dependencies and scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Homepage:** Highlights featured projects, summary statistics, and latest news.
+- **Catalog:** Browse all projects, filter by language/topic, search, and sort.
+- **Responsive Design:** Works well on desktop and mobile.
+- **Easy Customization:** Update `repos.json` and images in `public/img/` as needed.
+
+### Customization
+
+- To add or update projects, edit `public/repos.json`.
+- To change branding or images, update files in `public/img/`.
+- For advanced filtering or UI changes, modify components in `app/components/` and `app/catalog/`.
+
+### Deployment
+
+You can deploy this app to Vercel, Netlify, or any static hosting provider that supports Next.js.
